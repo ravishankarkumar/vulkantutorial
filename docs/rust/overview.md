@@ -8,7 +8,7 @@ next:
 ---
 # Overview
 ::: warning
-This page contains useless and boring information, with the sole intention of making you feel good. You won't loose anything by skipping it.
+This section is meant for absolute begineers. Experienced developers won't benefit, so they should skip this section.
 :::
 
 ## Vulkan overview
@@ -17,13 +17,10 @@ Vulkan is a verbose API. Actually, its a very verbose API. Evrything it needs to
 But that is exactly why you are here. It's my responsibility to simplify it, and make it as interesting as it can be. If you fail, its my failure.
 
 ## GPUs overview
-::: tip
-Save your time by skipping this section if you understand what GPUs are.
-:::
 
 IT industry largely revolves around softwares that gets executed on CPUs. Which can execute only one instruction at a time. If you have a multi-core CPU, then you can run a few instructions at a time. You take advantage of multi-threading and you **feel** like you are running everything at once. But, even you taking into use the best hardware and software constructs, the number of instructions that you can execute at once on CPU is fairly small. But, CPUs can execute every kind of instruction that can be there. They are the best generalists.
 
-There exists other hardwares that are not generalists. They can do just one type of work, and because they can do just one type of work, you gets to remove all the functionalities needed to make it general purpose. By removing these extra functionalities, the hardware gets so simplified that they become cheap and small and less power hungry. And because they are cheap, small, and less power hungry, its possible to have lakhs(million/10) of such hardwares on a single chip. And such chips can run lakhs(million/10) of instructions and once. GPU(Graphics Processing Unit) is one such hardware.
+There exists other hardwares that are not generalists. They can do just one type of work, and because they can do just one type of work, you get to remove all the functionalities needed to make it general purpose. By removing these extra functionalities, the hardware gets so simplified that they become cheap and small and less power hungry. And because they are cheap, small, and less power hungry, its possible to have lakhs(million/10) of such hardwares on a single chip. And such chips can run lakhs(million/10) of instructions and once. GPU(Graphics Processing Unit) is one such hardware.
 
 If you watch [this video by NVIDIA](https://www.youtube.com/watch?v=-P28LKWTzrI), I will probably to able to drive home my point.
 

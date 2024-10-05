@@ -18,10 +18,13 @@ export default defineConfig({
           text: 'Introduction', link: '/rust'
         },
         {
-          text: 'Overview(Skip)', link: '/rust/overview'
+          text: 'Overview', link: '/rust/overview'
         },
         {
           text: 'Tutorial Overview', link: '/rust/tutorial-overview'
+        },
+        {
+          text: 'Development environment setup', link: '/rust/dev-env-setup'
         },
         // {
         //   text: 'Chapter 1',

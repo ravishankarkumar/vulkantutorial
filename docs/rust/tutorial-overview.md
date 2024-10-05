@@ -2,34 +2,61 @@
 prev:
   text: 'Overview'
   link: '/rust/overview'
-# next:
-#   text: 'New intro'
-#   link: '/rust/markdown-examples'
+next:
+  text: 'Development environment setup'
+  link: '/rust/dev-env-setup'
 ---
-# Overview
-::: warning
-This page contains useless and boring information, with the sole intention of making you feel good. You won't loose anything by skipping it.
+# Tutorial Overview
+As said in the last section, specialised hardwares(read GPUs), have their own tantrums. First we will look at nuances involved in programming for graphics hardwares. And then we will look into how vulkan handles them.
+
+
+## Graphics Programming nuances
+::: danger
+If you are an absolute begineer, this sub-section will scare you. You will have to bear with me. It starts to get easy from here.
+:::
+In normal programming(read CPUs), we create data either in stack or heap memory. Our CPU can read/modify them. In case of GPUs, this becomes complicated. They don't read write data the way CPUs do.
+
+To pass data to GPUs, we create buffers with specific parameters, and then we ask GPUs to read from there. And once GPUs are done processing the data, they can write them back to speciliased buffers for CPUs to read.
+
+In many a cases, to optimise for speed or otherwise, the data has to pass through two buffers. In one buffer, CPU writes, it is then transferred to another buffer that is specialised for faster access by GPU. And the GPUs read it from there.
+
+Even the instructions for GPUs to process these data is written differently. We write instructions to process just one data, but the GPUs apply the same instruction on each and every data. And the language for writing instructions to process data is also different, we call it a shader language.
+
+If we want to command/ask the GPU to use our shader instructions to process the data that we wrote in buffers. Then these command also has to go through a buffer.
+
+There are a lot of steps involved in calculating the final pixels that is being drawn on the screen. And quite a few of them are customizable by us. And we have to provide that customizations to be able to get output.
+
+Things we do in Graphics programming (Inexhaustive list, and in no particular order):
+- Make data visible to GPU through buffers
+- Write instructions for processing these data in shader language
+- Provide customisations/parameters for modifying steps involved in calculating final pixel
+- Provide commands to GPU through command buffer
+
+Some Graphic APIs handle some of the above things by themselves, by assuming stuffs on your behalf. But, vulkan needs you to specify them categorically.
+
+::: info
+Almost all the authors/bloggers in this space where we teach graphic programming have a habbit of keep comparing different Graphic APIs, such as OpenGL vs Vulkan etc. I will not do that. I believe that begineers get more distracted and confused by that approach, and the experts don't need them. 
 :::
 
-## Vulkan overview
-Vulkan is a verbose API. Actually, its a very verbose API. Evrything it needs to execute an instruction, it will expect you to provide it. And the way to pass these data will be in object/struct kind of construct. Even you are a very smart person, it will still take a lot of time to digest and internalise everything. Many a times, you will feel like you have hit a roadblock, the frustration will make you want to give up.
+## Steps in rendering a triangle using vulkan
+Rendering a triangle exposes bulk of the complexities involved in graphics programming. Let's see what we will need to do to draw a triangle using Vulkan.
 
-But that is exactly why you are here. It's my responsibility to simplify it, and make it as interesting as it can be. If you fail, its my failure.
+1. Creating a vulkan Instance
+1. Choose a physical device
+1. Create a logical device(mapped to physical device)
+1. Select queue families for chosen device
+1. Create a window
+1. Create a window surface
+1. Create a swapchain
+    1. Acquire image from swapchain
+    1. Create imageview for image acquired from swapchain
+1. Create a framebuffer
+1. Create a Renderpass
+1. Create a Graphics pipeline
+1. Create a command Pool
+1. Get allocated commandbuffer from CommandPool
+1. Main loop to orchestrate all the above steps
 
-## GPUs overview
-::: tip
-Save your time by skipping this section if you understand what GPUs are.
-:::
+Looks like a lot? Don't worry. We will have proper sections dedicated to each step in the above list. And I will ensure that you understand it.
 
-IT industry largely revolves around softwares that gets executed on CPUs. Which can execute only one instruction at a time. If you have a multi-core CPU, then you can run a few instructions at a time. You take advantage of multi-threading and you **feel** like you are running everything at once. But, even you taking into use the best hardware and software constructs, the number of instructions that you can execute at once on CPU is fairly small. But, CPUs can execute every kind of instruction that can be there. They are the best generalists.
 
-There exists other hardwares that are not generalists. They can do just one type of work, and because they can do just one type of work, you gets to remove all the functionalities needed to make it general purpose. By removing these extra functionalities, the hardware gets so simplified that they become cheap and small and less power hungry. And because they are cheap, small, and less power hungry, its possible to have lakhs(million/10) of such hardwares on a single chip. And such chips can run lakhs(million/10) of instructions and once. GPU(Graphics Processing Unit) is one such hardware.
-
-If you watch [this video by NVIDIA](https://www.youtube.com/watch?v=-P28LKWTzrI), I will probably to able to drive home my point.
-
-## GPU/Graphics Programming overview
-Because GPUs are very specialised hardwares, they have a lot of tantrums w.r.t. to how you give instructions and data to them, and how you get back the results. Another reason for these tantrums are that they have been less researched and innivated upon as compared to CPUs.
-
-Vulkan, or any graphics API, sits between you and the hardware. Some of these APIs are good at handling these tantrums themselves, and make your life easy. Some, including vulkan, believe that by handling all these tantrums, they will end up making this middle layer fat. And these fat middle layers will take away power from the users. And that's the reason why you vulkan is a very verbose API.
-
-The advantage of learning vulkan is that you get to learn all the nuances of graphics programming. You are more in control, and you can easily master other APIs, whevener you need to.
