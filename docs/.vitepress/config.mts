@@ -26,6 +26,9 @@ export default defineConfig({
         {
           text: 'Development environment setup', link: '/rust/dev-env-setup'
         },
+        {
+          text: 'Glossary', link: '/rust/glossary'
+        },
         // {
         //   text: 'Chapter 1',
         //   items: [

@@ -48,14 +48,18 @@ Rendering a triangle exposes bulk of the complexities involved in graphics progr
 1. Create a window
 1. Create a window surface
 1. Create a swapchain
-    1. Acquire image from swapchain
-    1. Create imageview for image acquired from swapchain
+1. Acquire image from swapchain
+1. Create imageview for image acquired from swapchain
 1. Create a framebuffer
 1. Create a Renderpass
 1. Create a Graphics pipeline
 1. Create a command Pool
 1. Get allocated commandbuffer from CommandPool
 1. Main loop to orchestrate all the above steps
+
+::: info
+If you want to have a quick look about these terms, you can optionally head over to [Glossary](/rust/glossary).
+:::
 
 Looks like a lot? Don't worry. We will have proper sections dedicated to each step in the above list. And I will ensure that you understand it.
 
