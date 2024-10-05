@@ -8,21 +8,33 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Rust', link: '/rust' },
+      // { text: 'Examples', link: '/markdown-examples' }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: {
+      "rust": [
+        {
+          text: 'Introduction', link: '/rust'
+        },
+        {
+          text: 'Overview(Skip)', link: '/rust/overview'
+        },
+        {
+          text: 'Tutorial Overview', link: '/rust/tutorial-overview'
+        },
+        // {
+        //   text: 'Chapter 1',
+        //   items: [
+        //     { text: 'Markdown Examples', link: '/rust/markdown-examples' },
+        //     { text: 'Runtime API Examples', link: '/rust/api-examples' }
+        //   ]
+        // }
+      ],
+    },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/ravishankarkumar/vulkantutorial-rust-code' }
     ]
   }
 })

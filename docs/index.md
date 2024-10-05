@@ -3,23 +3,23 @@
 layout: home
 
 hero:
-  name: "Vulkan Tutorial custom domain"
-  text: "Vulkan tutorial for begineer | written in Rust"
-  tagline: My great project tagline
+  name: "Vulkan Tutorial"
+  text: "Using Rust"
+  tagline: "Assumes no prior graphics knowledge."
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Start tutorial
+      link: /rust
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Get code directly
+      link: https://github.com/ravishankarkumar/vulkantutorial-rust-code
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Guideline 1
+    details: If something can be said in fewer words, say it in fewer words
+  - title: Guideline 2
+    details: If a concept needs to be repeated, repeat it
+  - title: Guideline 3
+    details: Assume zero knowledge, even for the programming language that we are using 
 ---
 
