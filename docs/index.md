@@ -17,11 +17,11 @@ hero:
 features:
   - title: Guideline 1
     details: If something can be said in fewer words, say it in fewer words
+  # - title: Guideline 2
+  #   details: If a concept needs to be repeated, repeat it rather than pasting a link
   - title: Guideline 2
-    details: If a concept needs to be repeated, repeat it rather than pasting a link
-  - title: Guideline 3
-    details: Assume zero knowledge, even for the programming language that we are using 
-  - title: Guideline 4
-    details: Minimise external links as much as possible 
+    details: Assume zero knowledge 
+  # - title: Guideline 4
+  #   details: Minimise external links as much as possible 
 ---
 
