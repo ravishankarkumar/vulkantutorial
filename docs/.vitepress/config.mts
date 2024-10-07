@@ -27,15 +27,27 @@ export default defineConfig({
           text: 'Development environment setup', link: '/rust/dev-env-setup'
         },
         {
-          text: 'Glossary', link: '/rust/glossary'
+          text: 'Befriending Vulkan',
+          items: [
+            { text: 'Getting Started', link: '/rust/befriending-vulkan/introduction' },
+            {
+              text: 'Instance', items: [
+                { text: 'Instance creation', link: '/rust/befriending-vulkan/instance/instance' }
+              ]
+            },
+            // { text: 'Runtime API Examples', link: '/rust/api-examples' }
+          ]
         },
         // {
-        //   text: 'Chapter 1',
+        //   text: 'Creating a window',
         //   items: [
-        //     { text: 'Markdown Examples', link: '/rust/markdown-examples' },
-        //     { text: 'Runtime API Examples', link: '/rust/api-examples' }
+        //     { text: 'Introduction', link: '/rust/creating-window/winit' },
+        //     // { text: 'Runtime API Examples', link: '/rust/api-examples' }
         //   ]
-        // }
+        // },
+        {
+          text: 'Glossary', link: '/rust/glossary'
+        },
       ],
     },
 
