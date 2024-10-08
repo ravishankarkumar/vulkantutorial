@@ -3,8 +3,8 @@ prev:
   text: 'Befriending Vulkan Introduction'
   link: '/rust/befriending-vulkan/introduction'
 next:
-  text: 'Overview'
-  link: '/rust/glossary'
+  text: 'Create cross platform instance'
+  link: '/rust/befriending-vulkan/instance/instance-cross-platform'
 ---
 
 # Introduction
@@ -53,27 +53,26 @@ We will use [Ash](https://crates.io/crates/ash), because
 
 ## Creating an instance
 
-First install ash by `cargo add ash`.
+First install ash by `cargo add ash`
 
 Then create a folder structure like this inside your src folder
 ```
 src
-|---tutorials
-|---|---instance
-|---|---|---01_1_vulkan_instance.rs
-|---main.rs
+|- tutorials
+|    |- instance
+|         |- 01_1_vulkan_instance.rs
+|- main.rs
 ```
 
-Add this snippet to `cargo.tolm` file. This will help us run this particular program by the command `cargo run --bin 00`
+Add this snippet to `cargo.tolm` file. This will help us run this particular program by the command `cargo run --bin 01_0`
 ``` toml
 [[bin]]
-name = "00"
-path = "src/tutorials/01_1_vulkan_instance.rs"
+name = "01_1"
+path = "src/tutorials/instance/01_0_vulkan_instance_plain.rs"
 ```
 
 Add this to the top of the file
 ``` rust
-use std::ffi::CString;
 use ash::{vk, Entry, Instance};
 ```
 And then add this to your main function
@@ -85,4 +84,38 @@ Almost all the APIs of vulkan can be called only on instance. But, some programs
 
 Ash exposes such APIs through `Entry` module. Above code should be clear now, we are creating an entry object, and in the second line, we are calling our custom function to create an instance using the entry object.
 
-Please find the [:link: Rust code on github here](https://github.com/ravishankarkumar/vulkantutorial-rust-code/blob/main/src/tutorials/instance/01_1_vulkan_instance.rs)
+Now, let's look at our custom `create_instance` function.
+
+``` rust
+fn create_instance(entry: &Entry) -> Instance {
+    let app_info = vk::ApplicationInfo {
+        api_version: vk::make_api_version(0, 1, 0, 0),
+        ..Default::default()
+    };
+    let instance_create_info = vk::InstanceCreateInfo {
+        p_application_info: &app_info,
+        ..Default::default()
+    };
+    unsafe { entry.create_instance(&instance_create_info, None).unwrap() }
+}
+```
+::: warning Fails on macOS
+This snippet will work on devices that support vulkan natively, and will fail otherwise. I will largely be correct if I would say that this fails on macOS and works on other platform.
+
+For macOS, we need a little extra configuration, that is the subject of our next chapter. Next chapter onwards, every code will work on all the platforms.
+:::
+
+`api_version: vk::make_api_version(0, 1, 0, 0),` indicates the version of API against which we will build our program. Ideally, we should keep version number the lowest enough that supports all the features that we use(such as layers and extension).
+
+`app_info` is a struct that contains information the app that we are creating. Luckily for us, `ash` populates default values for most of them, so our current code is simple. We will customise for fields in the next chapter.
+
+Similaryly, `instance_create_info` contains info required for creating vulkan instance. Please pay attention to `p_application_info: &app_info,`, `instance_create_info` expects a `p_application_info` to contain reference of `app_info`.
+
+Also note that `entry.create_instance` expects two parameters, first one is reference of `instance_create_info` and the second one is `allocation_callback`. In this entire tutorial, we will always pass `None` as argument wherever `allocation_callback` is expected.
+
+**NOTE**: Please note how arguments are passed to the APIs. We create an struct/object, and then pass its reference. Vulkan uses the same pattern for almost everything, so it's better to get used to this.
+
+
+Optional: You can look at the [official document](https://www.lunarg.com/wp-content/uploads/2022/04/Portability-Enumeration-Extension-APR2022.pdf) regarding `VK_KHR_portability_enumeration` extension.
+
+Please find the [:link: final code on github](https://github.com/ravishankarkumar/vulkantutorial-rust-code/blob/main/src/tutorials/instance/01_0_vulkan_instance_plain.rs)

@@ -32,7 +32,9 @@ export default defineConfig({
             { text: 'Getting Started', link: '/rust/befriending-vulkan/introduction' },
             {
               text: 'Instance', items: [
-                { text: 'Instance creation', link: '/rust/befriending-vulkan/instance/instance' }
+                { text: 'Basic Instance creation', link: '/rust/befriending-vulkan/instance/instance-basic' },
+
+                { text: 'Cross-platform Instance creation', link: '/rust/befriending-vulkan/instance/instance-cross-platform' }
               ]
             },
             // { text: 'Runtime API Examples', link: '/rust/api-examples' }

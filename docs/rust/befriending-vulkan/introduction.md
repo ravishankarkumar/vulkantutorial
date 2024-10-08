@@ -4,7 +4,7 @@ prev:
   link: '/rust/dev-env-setup'
 next:
   text: 'Instance creation'
-  link: '/rust/befriending-vulkan/instance/instance'
+  link: '/rust/befriending-vulkan/instance/instance-basic'
 ---
 
 # Introduction
