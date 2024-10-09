@@ -3,8 +3,8 @@ prev:
   text: 'Create Instance (Basic)'
   link: '/rust/befriending-vulkan/instance/instance-basic'
 next:
-  text: 'Overview'
-  link: '/rust/glossary'
+  text: 'Validation Layers'
+  link: '/rust/befriending-vulkan/validation-layers'
 ---
 
 # Introduction

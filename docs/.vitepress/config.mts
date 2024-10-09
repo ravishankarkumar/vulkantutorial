@@ -37,6 +37,7 @@ export default defineConfig({
                 { text: 'Cross-platform Instance creation', link: '/rust/befriending-vulkan/instance/instance-cross-platform' }
               ]
             },
+            { text: 'Validation Layers', link: '/rust/befriending-vulkan/validation-layers' },
             // { text: 'Runtime API Examples', link: '/rust/api-examples' }
           ]
         },
