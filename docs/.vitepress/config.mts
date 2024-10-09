@@ -8,7 +8,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Rust', link: '/rust' },
+      { text: 'Rust (Currently unfinished, WIP)', link: '/rust' },
       // { text: 'Examples', link: '/markdown-examples' }
     ],
 
@@ -34,10 +34,11 @@ export default defineConfig({
               text: 'Instance', items: [
                 { text: 'Basic Instance creation', link: '/rust/befriending-vulkan/instance/instance-basic' },
 
-                { text: 'Cross-platform Instance creation', link: '/rust/befriending-vulkan/instance/instance-cross-platform' }
+                { text: 'Better Instance creation', link: '/rust/befriending-vulkan/instance/instance-cross-platform' }
               ]
             },
             { text: 'Validation Layers', link: '/rust/befriending-vulkan/validation-layers' },
+            { text: 'Physical Device and Queue families', link: '/rust/befriending-vulkan/physical-device-queue-family' },
             // { text: 'Runtime API Examples', link: '/rust/api-examples' }
           ]
         },

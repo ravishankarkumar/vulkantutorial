@@ -3,8 +3,8 @@ prev:
   text: 'Create cross platform instance'
   link: '/rust/befriending-vulkan/instance/instance-cross-platform'
 next:
-  text: 'Instance creation'
-  link: '/rust/befriending-vulkan/instance/instance-basic'
+  text: 'Physical Device and Queue families'
+  link: '/rust/befriending-vulkan/physical-device-queue-family'
 ---
 
 # Introduction
